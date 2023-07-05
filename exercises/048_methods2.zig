@@ -37,7 +37,6 @@ pub fn main() void {
     // This links the elephants so that each tail "points" to the next.
     elephantA.tail = &elephantB;
     elephantB.tail = &elephantC;
-    elephantC.tail = &elephantA;
 
     visitElephants(&elephantA);
 
