@@ -62,7 +62,7 @@ const Food = struct {
     requires: [ingredients]bool,
 };
 
-//                 Chili  Macaroni  Tomato Sauce  Cheese
+//                 Chili  Macaroni  ToMato Sauce  Cheese
 // ------------------------------------------------------
 //  Mac & Cheese              x                     x
 //  Chili Mac        x        x
@@ -128,8 +128,8 @@ pub fn main() void {
         // wanted for this Food.
         //
         // Please return this Food from the loop.
-        break;
-    };
+        break food;
+    } else menu[0];
     // ^ Oops! We forgot to return Mac & Cheese as the default
     // Food when the requested ingredients aren't found.
 
