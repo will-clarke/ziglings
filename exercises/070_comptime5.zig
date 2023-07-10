@@ -111,6 +111,7 @@ pub fn main() void {
 // perform duck typing ("if it walks like a duck and it quacks
 // like a duck, then it must be a duck") to determine if the type
 // is a "duck".
+
 fn isADuck(possible_duck: anytype) bool {
     // We'll use @hasDecl() to determine if the type has
     // everything needed to be a "duck".
@@ -123,8 +124,8 @@ fn isADuck(possible_duck: anytype) bool {
     // Please make sure MyType has both waddle() and quack()
     // methods:
     const MyType = @TypeOf(possible_duck);
-    const walks_like_duck = ???;
-    const quacks_like_duck = ???;
+    const walks_like_duck = @hasDecl(MyType, "waddle");
+    const quacks_like_duck = @hasDecl(MyType, "quack");
 
     const is_duck = walks_like_duck and quacks_like_duck;
 
@@ -134,7 +135,7 @@ fn isADuck(possible_duck: anytype) bool {
         // sufficiently duck-like.
         //
         // Because all of the checking and inference is performed
-        // at compile time, we still have complete type safety:
+        // at comDuckpile time, we still have complete type safety:
         // attempting to call the quack() method on a struct that
         // doesn't have it (like Duct) would result in a compile
         // error, not a runtime panic or crash!
